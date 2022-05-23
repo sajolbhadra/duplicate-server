@@ -9,7 +9,13 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 // const ObjectId = require('mongodb').ObjectId;
 
 //middleware
-app.use(cors())
+app.use(
+    cors({
+      origin: true,
+      optionsSuccessStatus: 200,
+      credentials: true,
+    })
+  );
 app.use(express.json())
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.60qwo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
